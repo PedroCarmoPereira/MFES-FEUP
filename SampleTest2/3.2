@@ -1,0 +1,41 @@
+open util/ordering[Time]
+
+sig Time{}
+
+one sig List {
+	head : Time -> lone Node
+}
+
+sig Node {
+	next : Time -> lone Node,
+	value: Int
+}
+
+fact {
+	no List.head[first] 
+}
+
+pred delete (n: Node, t0, t1:Time) {
+	all n0, n1:Node | n0.next[t0] = n and n.next[t0] = n1 implies  n0.next[t1] = n1
+}
+
+abstract sig Event { 
+	pre, post: Time, 
+}
+
+sig InsertEvent extends Event {}
+
+sig DeleteEvent extends Event {}
+
+
+fact traces {
+	first.init
+//	all t: Time - last | let t' = t.next | some e: Event | e in InsertEvent or e in DeleteEvent
+}
+/*
+pred sorted {
+	all t:Time | one List.head[t] | List.head[t]
+}*/
+
+run delete
+

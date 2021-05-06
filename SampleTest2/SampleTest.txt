@@ -1,0 +1,48 @@
+POSSIBLE SOLLUTION FOR THE SAMPLE TEST 2
+
+GROUP 1
+
+Consider de following Alloy models:
+
+a) Go to file 1a.als
+	R: TRUE
+b) Go to file 1b.als
+	R: TRUE (R can be an empty relation)
+c) Go to file 1c.als
+	R: TRUE 
+d) Go to file 1d.als
+	R: FALSE because Alloy will try to generate 3 (baseline) or more Relations R, and find only 2 possible since B is abstract, and only one instance of B1 and B2 exist.
+e) Go to file 1e.als
+	R: FALSE, syntax error on A1]
+f) Go to file 1f.als
+	R: FALSE if  the REL only matches to 0 or 1 B there can't be entries for both B1 AND B2
+
+GROUP 2
+
+Consider the Alloy model in the file 2.als
+
+a) Analysis Vars
+	
+	Sets/Sigs: Node and DAG
+
+	Relations: edge
+
+	Pred Args: g, g' and e
+
+b) Analysis Constraints (pred && facts && implicit constraints)
+
+	add && acyclic && 2 DAGS && up to 3 Nodes and 3 edges
+
+GROUP 3 
+
+3.1 Consider the Alloy model in the file 3.1.als
+
+3.2 Consider the Alloy model in the file 3.2.als
+
+GROUP 4
+
+1. Skolemization is the process of removing existential quantifiers from an expression. Skolemized expressions are easier to solve with the standard solvers.
+
+2. No. To be decidable means that the answer to a decision problem is possible. Considering alloy's predicates and assertions to be decision problems it's not possible to decide completely for one or the other side when checking assertions and predicates as the scope is always limited.
+
+3. WTF????
